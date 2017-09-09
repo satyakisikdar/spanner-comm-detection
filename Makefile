@@ -1,23 +1,13 @@
 #!/bin/bash
 
-CC=g++-5
+CC=g++
 CFLAGS= -ansi -O5 -Wall
 CFLAGS2 = -std=c++14
 LDFLAGS= -ansi -lm -Wall
-EXEC=community convert hierarchy pre final_cpp
-OBJ1= graph_binary.o community.o
-OBJ2= graph.o
+EXEC= pre final_cpp
+
 
 all: $(EXEC)
-
-community : $(OBJ1) main_community.o
-	$(CC) -o $@ $^ $(LDFLAGS)
-
-convert : $(OBJ2) main_convert.o
-	$(CC) -o $@ $^ $(LDFLAGS)
-
-hierarchy : main_hierarchy.o
-	$(CC) -o $@ $^ $(LDFLAGS)
 
 pre : 
 	$(CC) pre_process.cpp -o pre $(CFLAGS) $(CFLAGS2)

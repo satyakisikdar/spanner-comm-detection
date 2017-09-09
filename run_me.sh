@@ -35,7 +35,7 @@ else
 	SECONDS=0
 	./convert -i rehashed_$filename -o graph.bin
 	p_filename="_cover.part"
-	./community graph.bin -p rehashed_weighted_$filename$p_filename -v
+	./louvain graph.bin -p rehashed_weighted_$filename$p_filename -v
 	echo 
 	echo Modularity maximization took $SECONDS secs. The whole process took $(($SECONDS + $t1)) seconds 
 	echo Thanks for using the program! 
